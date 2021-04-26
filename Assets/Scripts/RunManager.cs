@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RunManager : MonoBehaviour
 {
@@ -27,12 +28,17 @@ public class RunManager : MonoBehaviour
                 Retry();
             }
         }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 
     internal void HitOil()
     {
         WinText.SetActive(true);
         isStarted = false;
+        GetComponent<AudioSource>().Play();
     }
 
     private void Retry()

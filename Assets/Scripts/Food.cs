@@ -24,10 +24,12 @@ public class Food : MonoBehaviour
                 foodRenderer.sprite = friedSprite;
                 Instantiate(friedParticles, transform);
                 isFried = true;
+                GetComponent<AudioSource>().Play();
             }
             else
             {
                 transform.localScale *= GrowTimes;
+                GetComponent<AudioSource>().Play();
             }
         }
     }
